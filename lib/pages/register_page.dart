@@ -15,7 +15,11 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   // text editing controllers
+  final fullNameController = TextEditingController();
+  final usernameController = TextEditingController();
   final emailController = TextEditingController();
+  final ageController = TextEditingController();
+  final genderController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
@@ -103,11 +107,47 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
             
                 const SizedBox(height: 25),
-            
+
+                // full name textfield
+                MyTextfield(
+                  controller: fullNameController,
+                  hintText: 'Full Name',
+                  obscureText: false,
+                ),
+
+                const SizedBox(height: 10),
+
                 // username textfield
+                MyTextfield(
+                  controller: fullNameController,
+                  hintText: 'Username',
+                  obscureText: false,
+                ),
+            
+                const SizedBox(height: 10),
+            
+                // email textfield
                 MyTextfield(
                   controller: emailController,
                   hintText: 'Email',
+                  obscureText: false,
+                ),
+
+                const SizedBox(height: 10),
+
+                // age textfield
+                MyTextfield(
+                  controller: ageController,
+                  hintText: 'Age',
+                  obscureText: false,
+                ),
+
+                const SizedBox(height: 10),
+
+                // gender textfield
+                MyTextfield(
+                  controller: emailController,
+                  hintText: 'Gender',
                   obscureText: false,
                 ),
             
@@ -169,7 +209,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
             
-                const SizedBox(height: 50),
+                const SizedBox(height: 40),
             
                 // google sign in button
                 Row(
@@ -184,7 +224,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
             
-                const SizedBox(height: 50),
+                const SizedBox(height: 40),
             
                 // not a member? register now
                 Row(
