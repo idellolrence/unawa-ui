@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sign_up/components/my_button.dart';
@@ -40,15 +41,23 @@ class _RegisterPageState extends State<RegisterPage> {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text, 
          password: passwordController.text,
-        ); 
+        );
+
+        // add user details
+        addUserDetails(
+          fullNameController.text.trim(),
+          usernameController.text.trim(),
+          emailController.text.trim(),
+          int.parse(ageController.text.trim()),
+          genderController.text.trim(),
+          );
+          // pop the loading circle
+          Navigator.pop(context);
+          
       } else {
         // show error message, passwords do no match
         showErrorMessage("Passwords do not match.");
       }
-
-    // pop the loading circle
-    Navigator.pop(context);
-
     } on FirebaseAuthException catch (e) {
       
       // pop the loading circle
@@ -58,6 +67,16 @@ class _RegisterPageState extends State<RegisterPage> {
       showErrorMessage(e.code);
       
     }
+  }
+  // add user details
+  Future addUserDetails(String fullname, String username, String email, int age, String gender) async {
+    await FirebaseFirestore.instance.collection('users').add({
+      'fullName': fullname,
+      'username': username,
+      'email': email,
+      'age': age,
+      'gender': gender,
+    });
   }
 
   // error message to user
@@ -119,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 // username textfield
                 MyTextfield(
-                  controller: fullNameController,
+                  controller: usernameController,
                   hintText: 'Username',
                   obscureText: false,
                 ),
@@ -146,7 +165,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 // gender textfield
                 MyTextfield(
-                  controller: emailController,
+                  controller: genderController,
                   hintText: 'Gender',
                   obscureText: false,
                 ),
