@@ -28,7 +28,9 @@ class _RegisterPageState extends State<RegisterPage> {
   void signUserUp() async {
 
     // show loading circle
-    showDialog(context: context, builder: (context) {
+    showDialog(
+      context: context, 
+      builder: (context) {
       return const Center(
         child: CircularProgressIndicator(),
         );
@@ -38,13 +40,14 @@ class _RegisterPageState extends State<RegisterPage> {
     // try creating the user
     try {
       if (passwordController.text == confirmPasswordController.text){
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text, 
          password: passwordController.text,
         );
 
         // add user details
-        addUserDetails(
+        await addUserDetails(
+          userCredential.user!.uid,
           fullNameController.text.trim(),
           usernameController.text.trim(),
           emailController.text.trim(),
@@ -69,8 +72,8 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
   // add user details
-  Future addUserDetails(String fullname, String username, String email, int age, String gender) async {
-    await FirebaseFirestore.instance.collection('users').add({
+  Future<void> addUserDetails(String userId, String fullname, String username, String email, int age, String gender) async {
+    await FirebaseFirestore.instance.collection('users').doc(userId).set({
       'fullName': fullname,
       'username': username,
       'email': email,
@@ -237,7 +240,9 @@ class _RegisterPageState extends State<RegisterPage> {
             
                     // google button
                     SquareTile(
-                      onTap: () => AuthService().signInWithGoogle(),
+                      onTap: () async {
+                        await AuthService().signInWithGoogle();
+                      },
                       imagePath: 'lib/assets/google.png',
                       )
                   ],

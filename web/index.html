@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
+
+  <!-- WEB CLIENT ID -->
+   <meta name="google-signin-client-id" content="402374246370-v2cjcbqvbvvocpc38otgksadg0b1f8g3.apps.googleusercontent.com">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,8 +21,37 @@
 
   <title>sign_up</title>
   <link rel="manifest" href="manifest.json">
+  <script src="https://apis.google.com/js/api.js" async defer></script>
+  <script src ="https://accounts.google.com/gsi/client" async defer></script>
 </head>
+
 <body>
+  <!-- Google Sign-In Button will be rendered here -->
+   <div id="g_id_onload"
+        data-client_id="402374246370-v2cjcbqvbvvocpc38otgksadg0b1f8g3.apps.googleusercontent.com"
+        data-callback="handleCredentialResponse">
+  </div>
+  <div class="g_id_signin" data-type="standard"></div>
+
+  <script>
+    function handleCredentialResponse(response) {
+      console.log('Encoded JWT ID token: ' + response.credential);
+      //Send the ID token to your Flutter app
+      signInWithGoogle(response.credential);
+    }
+
+    //function to communicate with flutter
+    function signInWithGoogle(idToken) {
+      // Check if Flutter is ready to receive the token
+      if (window.flutter_inappwebview) {
+        window.flutter_inappview.callHandler('googleSignIn', idToken);
+      } else {
+        console.error('Flutter is not ready to receive the token.');
+      }
+    }
+  </script>
+
   <script src="flutter_bootstrap.js" async></script>
 </body>
+
 </html>

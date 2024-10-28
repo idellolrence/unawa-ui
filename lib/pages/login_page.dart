@@ -16,15 +16,17 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   // text editing controllers
   final emailController = TextEditingController();
-
   final passwordController = TextEditingController();
 
   // sign user in method
   void signUserIn() async {
 
     // show loading circle
-    showDialog(context: context, builder: (context) {
-      return Center(child: CircularProgressIndicator(),
+    showDialog(
+      context: context,
+      builder: (context) {
+      return const Center(
+        child: CircularProgressIndicator(),
         );
       },
     );
@@ -60,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
           title: Center(
             child: Text(
               message,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         );
@@ -176,7 +178,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     // google button
                     SquareTile(
-                      onTap: () => AuthService().signInWithGoogle(),
+                      onTap: () async {
+                         await AuthService().signInWithGoogle();
+                      },
                       imagePath: 'lib/assets/google.png',
                     ),
                   ],
