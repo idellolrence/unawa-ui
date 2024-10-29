@@ -54,6 +54,9 @@ class _RegisterPageState extends State<RegisterPage> {
           int.parse(ageController.text.trim()),
           genderController.text.trim(),
           );
+
+          await FirebaseAuth.instance.signOut();
+
           // pop the loading circle
           Navigator.pop(context);
           
@@ -62,14 +65,12 @@ class _RegisterPageState extends State<RegisterPage> {
         showErrorMessage("Passwords do not match.");
       }
     } on FirebaseAuthException catch (e) {
-      
-      // pop the loading circle
       Navigator.pop(context);
 
       // show error message
       showErrorMessage(e.code);
-      
     }
+    Navigator.pop(context);
   }
   // add user details
   Future<void> addUserDetails(String userId, String fullname, String username, String email, int age, String gender) async {
@@ -104,21 +105,18 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 25),
                 // logo 
-                const Icon(
-                  Icons.lock,
-                  size: 85,
-                  ),
-            
-                  const SizedBox(height: 50),
+                Image.asset(
+                  'lib/assets/logo_blue.png',
+                  width: 200,
+                ),
             
                 // let's create an account for you
                 Text('Let\'s create an account for you!',
@@ -201,7 +199,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   text: ('Sign Up'),
                 ),
             
-                const SizedBox(height: 50),
+                const SizedBox(height: 40),
             
                 // or continue with
                 Padding(
@@ -231,7 +229,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
             
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
             
                 // google sign in button
                 Row(
@@ -248,7 +246,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
             
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
             
                 // not a member? register now
                 Row(

@@ -15,7 +15,7 @@ final String text;
         padding: const EdgeInsets.all(25),
         margin: const EdgeInsets.symmetric(horizontal: 25.0),
         decoration: BoxDecoration(
-          color: Colors.black,
+          color: Color.fromRGBO(0, 75, 173, 1),
           borderRadius: BorderRadius.circular(8),
           ),
         child: Center (

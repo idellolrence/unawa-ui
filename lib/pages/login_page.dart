@@ -74,22 +74,19 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 50),
                 // logo 
-                const Icon(
-                  Icons.lock,
-                  size: 100,
-                  ),
-            
-                  const SizedBox(height: 50),
-            
+                Image.asset(
+                  'lib/assets/logo_blue.png',
+                  width: 400,
+                ),
+      
                 // welcome back, we've missed you!
                 Text('Welcome back you\'ve been missed!',
                 style: TextStyle(
@@ -170,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
             
-                const SizedBox(height: 50),
+                const SizedBox(height: 25),
             
                 // google sign in button
                 Row(
@@ -185,8 +182,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-            
-                const SizedBox(height: 50),
+
+              const SizedBox(height: 25),
             
                 // not a member? register now
                 Row(
@@ -198,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(width: 4),
                     GestureDetector(
-                      onTap: widget.onTap,
+                      onTap: widget.onTap ?? () {},
                       child: const Text(
                         'Register now',
                         style: TextStyle(
