@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sign_up/components/my_button.dart';
-import 'package:sign_up/components/my_textfield.dart';
-import 'package:sign_up/components/square_tile.dart';
-import 'package:sign_up/pages/forgot_password_page.dart';
+import 'package:sign_up/utils/my_button.dart';
+import 'package:sign_up/utils/my_textfield.dart';
+import 'package:sign_up/utils/square_tile.dart';
+import 'package:sign_up/views/forgot_password_page.dart';
 import 'package:sign_up/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
