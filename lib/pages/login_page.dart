@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sign_up/components/my_button.dart';
 import 'package:sign_up/components/my_textfield.dart';
 import 'package:sign_up/components/square_tile.dart';
+import 'package:sign_up/pages/forgot_password_page.dart';
 import 'package:sign_up/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -97,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
             
                 const SizedBox(height: 25),
             
-                // username textfield
+                // email textfield
                 MyTextfield(
                   controller: emailController,
                   hintText: 'Email',
@@ -121,9 +122,17 @@ class _LoginPageState extends State<LoginPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.grey[600])
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            return ForgotPasswordPage();
+                          }));
+                        },
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                          color: Colors.blue, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),
