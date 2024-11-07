@@ -7,6 +7,78 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:402374246370:android:067e584d1552595d2103bb",
+        "android_client_info": {
+          "package_name": "app.unawa.learn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402374246370-v2cjcbqvbvvocpc38otgksadg0b1f8g3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3qoy7e-QIyCszEK7ZzKyaQQ-SzvbvI3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402374246370-v2cjcbqvbvvocpc38otgksadg0b1f8g3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "402374246370-fqbmj9rmphm0ijgjbo0rohhpv19reg4t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.unawaLearn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402374246370:android:79589699eefd56952103bb",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402374246370-v2cjcbqvbvvocpc38otgksadg0b1f8g3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3qoy7e-QIyCszEK7ZzKyaQQ-SzvbvI3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402374246370-v2cjcbqvbvvocpc38otgksadg0b1f8g3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "402374246370-fqbmj9rmphm0ijgjbo0rohhpv19reg4t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.unawaLearn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:402374246370:android:28f4209e312ac5d82103bb",
         "android_client_info": {
           "package_name": "com.unawa.app"
@@ -31,10 +103,46 @@
               "client_type": 3
             },
             {
-              "client_id": "402374246370-gk37e1r3ahaof0ffrqmhoetqljvla1ae.apps.googleusercontent.com",
+              "client_id": "402374246370-fqbmj9rmphm0ijgjbo0rohhpv19reg4t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.signUp"
+                "bundle_id": "com.example.unawaLearn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402374246370:android:979720b9340d9e172103bb",
+        "android_client_info": {
+          "package_name": "con.ex.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402374246370-v2cjcbqvbvvocpc38otgksadg0b1f8g3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3qoy7e-QIyCszEK7ZzKyaQQ-SzvbvI3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402374246370-v2cjcbqvbvvocpc38otgksadg0b1f8g3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "402374246370-fqbmj9rmphm0ijgjbo0rohhpv19reg4t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.unawaLearn"
               }
             }
           ]

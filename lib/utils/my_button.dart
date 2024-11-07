@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-
-final Function()? onTap;
-final String text;
+  final Function()? onTap;
+  final String text;
 
   const MyButton({super.key, required this.onTap, required this.text});
 
@@ -15,10 +14,10 @@ final String text;
         padding: const EdgeInsets.all(25),
         margin: const EdgeInsets.symmetric(horizontal: 25.0),
         decoration: BoxDecoration(
-          color: Color.fromRGBO(0, 75, 173, 1),
+          color: const Color.fromRGBO(0, 75, 173, 1),
           borderRadius: BorderRadius.circular(8),
-          ),
-        child: Center (
+        ),
+        child: Center(
           child: Text(
             text,
             style: const TextStyle(

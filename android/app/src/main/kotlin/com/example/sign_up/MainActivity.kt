@@ -1,5 +1,6 @@
-package com.example.sign_up
+package com.unawa.app
 
 import io.flutter.embedding.android.FlutterActivity
 
-class MainActivity: FlutterActivity()
+class MainActivity: FlutterActivity() {
+}
